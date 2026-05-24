@@ -7,7 +7,6 @@
 #include "AbilitySystemComponent.h"
 #include "CompanionAttributeSet.generated.h"
 
-
 UCLASS()
 class SWAT_COMPANION_API UCompanionAttributeSet : public UAttributeSet
 {
