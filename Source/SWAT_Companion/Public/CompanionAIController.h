@@ -17,34 +17,14 @@ class SWAT_COMPANION_API ACompanionAIController : public AAIController
 public:
 	// Sets default values for this actor's properties
 	ACompanionAIController();
-
-	UFUNCTION(BlueprintCallable, Category = "Companion|Commands")
-	void CommandFollowActor(AActor* NewFollowTarget);
-
-	UFUNCTION(BlueprintCallable, Category = "Companion|Commands")
-	void StopFollowing();
-
 protected:
 	// Called when the game starts or when spawned
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category = "AI")
 	TObjectPtr<UStateTreeComponent> StateTreeComponent;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Companion|Follow")
-	float FollowAcceptanceRadius = 200.0f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Companion|Follow")
-	float FollowRefreshInterval = 0.35f;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Companion|Follow")
-	TObjectPtr<AActor> FollowTarget;
-
-	FTimerHandle FollowRefreshTimerHandle;
 	
 	virtual void OnPossess(APawn* InPawn) override;
 	virtual void OnUnPossess() override;
 
 private:
-	void RefreshFollowMove();
-	
 };
